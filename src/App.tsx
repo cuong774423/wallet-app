@@ -65,7 +65,7 @@ function Wallet() {
             <button className="backmenu" onClick={() => {
               navigate('/')
             }}>
-              Trở về menu
+              Game
             </button>
           </FlexBoxRow>
           <Counter />

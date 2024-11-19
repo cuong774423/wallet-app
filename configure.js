@@ -61,7 +61,7 @@ let githubUsername, githubRepo, botUsername;
   ).catch(exitError);
 
   botUsername = getBot.data.result.username;
-  const url = `https://wallet-app-mauve.vercel.app/`;
+  const url = `https://wallet-app-ub98.vercel.app/`;
 
   console.log(`\n\nSetting bot ${botUsername} webapp url to ${url}`);
 
