@@ -15,7 +15,6 @@ export const FlexBoxRow = styled.div`
   flex-direction: row;
   gap: 10px;
   align-items: center;
-  justify-content: space-around;
 `;
 
 export const FlexBoxCol = styled.div`

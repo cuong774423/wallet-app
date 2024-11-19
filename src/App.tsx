@@ -53,7 +53,7 @@ function Wallet() {
     <StyledApp style={{backgroundColor: 'rgba(0,0,0,0.6)'}}>
       <AppContainer>
         <FlexBoxCol>
-          <FlexBoxRow>
+          <FlexBoxRow style={{ justifyContent: "space-around"}}>
             <TonConnectButton />
             <Button>
               {network
