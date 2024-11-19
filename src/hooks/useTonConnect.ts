@@ -3,6 +3,7 @@ import { Sender, SenderArguments } from "ton-core";
 import { useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
 
 export function useTonConnect(): {
+
   sender: Sender;
   connected: boolean;
   wallet: string | null;

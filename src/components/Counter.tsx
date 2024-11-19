@@ -16,11 +16,10 @@ export function Counter() {
 
   return (
     <div className="Container">
-      <TonConnectButton />
-
-      <Card>
+      <TonConnectButton />  
+      <Card style={{backgroundColor: 'rgba(0,0,0,0.8)', color: 'white', fontFamily: 'Arial, sans-serif'}}>
         <FlexBoxCol>
-          <h3>Counter</h3>
+          <h3 style={{textTransform: 'uppercase', fontWeight: 'bold'}}>Counter</h3>
           <FlexBoxRow>
             <b>Address</b>
             <Ellipsis>{address}</Ellipsis>

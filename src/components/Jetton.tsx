@@ -14,9 +14,9 @@ export function Jetton() {
   const { mint, jettonWalletAddress, balance } = useFaucetJettonContract();
 
   return (
-    <Card title="Jetton">
+    <Card title="Jetton" style={{backgroundColor: 'rgba(0,0,0,0.8)', color: 'white', fontFamily: 'Arial, sans-serif'}}>
       <FlexBoxCol>
-        <h3>Faucet Jetton</h3>
+        <h3 style={{textTransform: 'uppercase', fontWeight: 'bold'}}>Faucet Jetton</h3>
         <FlexBoxRow>
           Wallet
           <Ellipsis>{jettonWalletAddress}</Ellipsis>

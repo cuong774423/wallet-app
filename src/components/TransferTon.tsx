@@ -9,13 +9,13 @@ export function TransferTon() {
 
   const [tonAmount, setTonAmount] = useState("0.01");
   const [tonRecipient, setTonRecipient] = useState(
-    "EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c"
+    ""
   );
 
   return (
-    <Card>
+    <Card style={{backgroundColor: 'rgba(0,0,0,0.8)', color: 'white', fontFamily: 'Arial, sans-serif'}}> 
       <FlexBoxCol>
-        <h3>Transfer TON</h3>
+        <h3 style={{textTransform: 'uppercase', fontWeight: 'bold'}}>Transfer TON</h3>
         <FlexBoxRow>
           <label>Amount </label>
           <Input
@@ -33,6 +33,7 @@ export function TransferTon() {
             onChange={(e) => setTonRecipient(e.target.value)}
           ></Input>
         </FlexBoxRow>
+        
         <Button
           disabled={!connected}
           style={{ marginTop: 18 }}
