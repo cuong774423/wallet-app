@@ -1183,7 +1183,6 @@ Values:
   flex-direction: row;
   gap: 10px;
   align-items: center;
-  justify-content: space-around;
 `,Ug=ps.div`
   display: flex;
   flex-direction: column;
@@ -1223,4 +1222,4 @@ Values:
 `,Bpe=ps.div`
   max-width: 900px;
   margin: 0 auto;
-`;function Ipe(){return lt(lJ,{children:lt("div",{className:"App",children:lr(oJ,{children:[lt(M0,{path:"/",element:lt(JX,{})}),lt(M0,{path:"/game",element:lt(QX,{})}),lt(M0,{path:"/wallet",element:lt(Tpe,{})})]})})})}function Tpe(){const e=$5(),{network:t}=lo();return lt(Rpe,{style:{backgroundColor:"rgba(0,0,0,0.6)"},children:lt(Bpe,{children:lr(Ug,{children:[lr(xu,{children:[lt(B1,{}),lt(Lg,{children:t?t===Ks.MAINNET?"mainnet":"testnet":"N/A"}),lt("button",{className:"backmenu",onClick:()=>{e("/")},children:"Game"})]}),lt(Spe,{}),lt(kpe,{}),lt(Ape,{}),lt(B1,{})]})})})}const Ppe="https://raw.githubusercontent.com/ton-community/tutorials/main/03-client/test/public/tonconnect-manifest.json",Ope=new sj({defaultOptions:{queries:{refetchOnWindowFocus:!1}}});f3.createRoot(document.getElementById("root")).render(lt(cZ,{manifestUrl:Ppe,children:lt(EF,{client:Ope,children:lt(Ipe,{})})}));
+`;function Ipe(){return lt(lJ,{children:lt("div",{className:"App",children:lr(oJ,{children:[lt(M0,{path:"/",element:lt(JX,{})}),lt(M0,{path:"/game",element:lt(QX,{})}),lt(M0,{path:"/wallet",element:lt(Tpe,{})})]})})})}function Tpe(){const e=$5(),{network:t}=lo();return lt(Rpe,{style:{backgroundColor:"rgba(0,0,0,0.6)"},children:lt(Bpe,{children:lr(Ug,{children:[lr(xu,{style:{justifyContent:"space-around"},children:[lt(B1,{}),lt(Lg,{children:t?t===Ks.MAINNET?"mainnet":"testnet":"N/A"}),lt("button",{className:"backmenu",onClick:()=>{e("/")},children:"Game"})]}),lt(Spe,{}),lt(kpe,{}),lt(Ape,{}),lt(B1,{})]})})})}const Ppe="https://raw.githubusercontent.com/ton-community/tutorials/main/03-client/test/public/tonconnect-manifest.json",Ope=new sj({defaultOptions:{queries:{refetchOnWindowFocus:!1}}});f3.createRoot(document.getElementById("root")).render(lt(cZ,{manifestUrl:Ppe,children:lt(EF,{client:Ope,children:lt(Ipe,{})})}));
