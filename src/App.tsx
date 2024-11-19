@@ -2,7 +2,7 @@ import "./App.css";
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import GameScreen from '../src/components/game/GameScreen';
+import GameScreen from './components/game/GameScreen';
 import MenuScreen from './components/game/MenuScreen';
 import { TonConnectButton } from "@tonconnect/ui-react";
 import { Counter } from "./components/Counter";

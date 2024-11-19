@@ -1,6 +1,6 @@
-let audio;
+let audio: HTMLAudioElement | null = null;
 
-export const initMusic = (filePath) => {
+export const initMusic = (filePath: string): void => {
   audio = new Audio(filePath);
   audio.loop = true; 
 };
