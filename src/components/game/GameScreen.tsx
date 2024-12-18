@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { useTonConnect } from "../../hooks/useTonConnect";
 import './Game.css';
 import '../../assets/style/reset.css'
@@ -11,7 +10,8 @@ import smolder from'../../assets/images/smolder.jpeg';
 import dogsmile from'../../assets/images/laughingdog.gif';
 import coin from '../../assets/images/coin.png'
 import { initMusic, playMusic, pauseMusic } from '../../untils/Music';
-import backgroundMusic from '../../assets/music/anhtha.mp3';
+import backgroundMusic from '../../assets/music/Alan Walker - Fade [COPYRIGHTED NCS Release].mp3';
+import { useScore } from '../context/ScoreContext';
 
 const Game = () => {
   const [gridSize, setGridSize] = useState<number>(2);
@@ -25,35 +25,8 @@ const Game = () => {
   const [penalty, setPenalty] = useState<number | null>(null);
   const navigate = useNavigate();
   const { wallet } = useTonConnect();
-  const [userScore, setUserScore] = useState<number>(0); 
-
-  const saveScore = async (score: number) => {
-    if (!wallet) return;
-
-    try {
-      // Kiểm tra ví có trong cơ sở dữ liệu chưa, nếu chưa thì tạo tài khoản
-      await axios.post('http://localhost:3000/update-score', {
-        wallet_address: wallet,
-        score: score
-      });
-    } catch (error) {
-      console.error("Lỗi khi lưu điểm:", error);
-    }
-  };
-
-  const fetchUserScore = async () => {
-    if (!wallet) return;
-    try {
-      // Lấy điểm của người dùng từ API
-      const response = await axios.get(`http://localhost:3000/get-score/${wallet}`);
-      if (response.data && response.data.total_score !== undefined) {
-        setUserScore(response.data.total_score); // Cập nhật điểm người dùng từ API
-      }
-    } catch (error) {
-      console.error("Lỗi khi lấy điểm người dùng:", error);
-    }
-  };
-
+  const {scores, increaseScore} = useScore();
+ 
   const handlePlayMusic = () => {
     initMusic(backgroundMusic); 
     playMusic();
@@ -97,8 +70,7 @@ const Game = () => {
     } else if (timer === 0 && !gameOver) {
       setGameOver(true);
       pauseMusic();
-      saveScore(score);
-      setTimeout(fetchUserScore, 1000);
+      increaseScore(score);
     }
   }, [timer, gameOver]);
 
@@ -123,8 +95,7 @@ const Game = () => {
     if (!gameOver) {  
       setGameOver(true);
       pauseMusic();
-      saveScore(score);
-      setTimeout(fetchUserScore, 1000);
+      increaseScore(score);
     }
   }
 
@@ -183,7 +154,7 @@ const Game = () => {
           <div className="total-score">
             <h4> {wallet}</h4>
             <div className='coin_box'>
-              <span> {userScore} </span>
+              <span> {scores} </span>
               <img src={coin} alt="coin" className="coin" />
             </div>
           </div>

@@ -12,6 +12,7 @@ import styled from "styled-components";
 import { Button, FlexBoxCol, FlexBoxRow } from "./components/styled/styled";
 import { useTonConnect } from "./hooks/useTonConnect";
 import { CHAIN } from "@tonconnect/protocol";
+import { ScoreProvider } from "./components/context/ScoreContext";
 import "@twa-dev/sdk";
 
 const StyledApp = styled.div`
@@ -33,15 +34,17 @@ const AppContainer = styled.div`
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<MenuScreen />} />
-          <Route path="/game" element={<GameScreen />} />
-          <Route path="/wallet" element={<Wallet />} />
-        </Routes>
-      </div>
-    </Router>
+    <ScoreProvider>
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<MenuScreen />} />
+            <Route path="/game" element={<GameScreen />} />
+            <Route path="/wallet" element={<Wallet />} />
+          </Routes>
+        </div>
+      </Router>
+    </ScoreProvider>
   );
 }
 
