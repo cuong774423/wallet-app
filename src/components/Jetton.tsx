@@ -13,7 +13,7 @@ export function Jetton() {
         </FlexBoxRow>
         <FlexBoxRow>
           Balance:
-          {balance !== null ? ( <p>{balance} TON</p>
+          {balance !== null ? ( <p>{balance} JET</p>
           ) : (<p>Loading...</p>)}
         </FlexBoxRow>
       </FlexBoxCol>
