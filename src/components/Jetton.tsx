@@ -1,8 +1,10 @@
 import { useFaucetJettonContract } from "../hooks/useFaucetJettonContract";
-import {Card, FlexBoxCol, FlexBoxRow, Ellipsis} from "./styled/styled";
+import { useTonConnect } from "../hooks/useTonConnect";
+import {Card, FlexBoxCol, FlexBoxRow, Button, Ellipsis} from "./styled/styled";
 
 export function Jetton() {
-  const { jettonWalletAddress, balance, } = useFaucetJettonContract();
+  const {connected} = useTonConnect();
+  const { jettonWalletAddress, balance, mint } = useFaucetJettonContract();
 
   return (
     <Card title="Jetton" style={{ backgroundColor: 'rgba(0,0,0,0.8)', color: 'white', fontFamily: 'Arial, sans-serif'}}>
@@ -14,9 +16,17 @@ export function Jetton() {
         </FlexBoxRow>
         <FlexBoxRow>
           Balance:
-          {balance !== null ? ( <p>{balance} JET</p>
+          {balance !== null ? ( <p>{balance} TON</p>
           ) : (<p>Loading...</p>)}
         </FlexBoxRow>
+        <Button
+          disabled={!connected}
+          onClick={async () => {
+            mint();
+          }}
+        >
+          Get jettons from faucet
+        </Button>
       </FlexBoxCol>
     </Card>
   );
