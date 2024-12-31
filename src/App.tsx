@@ -8,12 +8,14 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import { Counter } from "./components/Counter";
 import { Jetton } from "./components/Jetton";
 import { TransferTon } from "./components/TransferTon";
+import WalletInfo from "./components/Ton";
 import styled from "styled-components";
 import { Button, FlexBoxCol, FlexBoxRow } from "./components/styled/styled";
 import { useTonConnect } from "./hooks/useTonConnect";
 import { CHAIN } from "@tonconnect/protocol";
 import { ScoreProvider } from "./components/context/ScoreContext";
 import "@twa-dev/sdk";
+import { BDCoin } from "./components/BDCoin";
 
 const StyledApp = styled.div`
   background-color: #e8e8e8;
@@ -71,9 +73,9 @@ function Wallet() {
               Game
             </button>
           </FlexBoxRow>
-          <Counter />
-          <TransferTon />
+          <WalletInfo />
           <Jetton />
+          <BDCoin />
           <TonConnectButton />
         </FlexBoxCol>
       </AppContainer>

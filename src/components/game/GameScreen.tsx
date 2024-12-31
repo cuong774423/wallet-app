@@ -9,9 +9,11 @@ import dogdancing from'../../assets/images/dogdancing.gif';
 import smolder from'../../assets/images/smolder.jpeg';
 import dogsmile from'../../assets/images/laughingdog.gif';
 import coin from '../../assets/images/coin.png'
+import bd from '../../assets/images/png-clipart-coins-coins-removebg-preview.png'
 import { initMusic, playMusic, pauseMusic } from '../../untils/Music';
 import backgroundMusic from '../../assets/music/Alan Walker - Fade [COPYRIGHTED NCS Release].mp3';
 import { useScore } from '../context/ScoreContext';
+import { useFaucetJettonContract } from '../../hooks/useFaucetJettonContract';
 
 const Game = () => {
   const [gridSize, setGridSize] = useState<number>(2);
@@ -26,6 +28,7 @@ const Game = () => {
   const navigate = useNavigate();
   const { wallet } = useTonConnect();
   const {scores, increaseScore} = useScore();
+  const {balance, mint} = useFaucetJettonContract();
  
   const handlePlayMusic = () => {
     initMusic(backgroundMusic); 
@@ -71,6 +74,9 @@ const Game = () => {
       setGameOver(true);
       pauseMusic();
       increaseScore(score);
+      if(score >= 20) {
+        mint();
+      }
     }
   }, [timer, gameOver]);
 
@@ -96,6 +102,9 @@ const Game = () => {
       setGameOver(true);
       pauseMusic();
       increaseScore(score);
+      if(score >= 20) {
+        mint();
+      }
     }
   }
 
@@ -158,11 +167,14 @@ const Game = () => {
               <img src={coin} alt="coin" className="coin" />
             </div>
           </div>
+          <span style={{display: 'flex', alignItems: 'center', color: 'grey', fontSize: 18, fontWeight: 'bold',
+           alignSelf: 'end', paddingRight: 20}}>{balance && balance}<img style={{height: 20, width: 20,}} src={bd}/></span>
           <img src={smolder} alt="img" className="image" />
           <h2>Kết quả</h2>
           <div className="result_scrore">Score: <span style={{ color: 'red' }}>{score}</span></div>
           <div className="result_level" >Level: <span style={{ color: 'blue' }}>{gridSize - 1}</span></div>
-          
+          {score<20 ? (<span className="result_level" style={{color: 'crimson', fontSize: 18}}> Đạt ít nhất 20 điểm để lấy jetton!</span>) : ''}
+
           <button onClick={resetGame} className="play_again">
             Chơi lại
           </button>

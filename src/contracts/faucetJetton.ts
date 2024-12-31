@@ -28,7 +28,7 @@ export default class FaucetJetton implements Contract {
         beginCell()
           .storeUint(INTERNAL_TRANSFER, 32)
           .storeUint(0, 64)
-          .storeCoins(toNano(150))
+          .storeCoins(toNano(50))
           .storeAddress(null)
           .storeAddress(receivingAddress) // So we get a notification
           .storeCoins(toNano("0.001"))
