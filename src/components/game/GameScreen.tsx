@@ -166,10 +166,11 @@ const Game = () => {
             <div className='coin_box'>
               <span> {scores} </span>
               <img src={coin} alt="coin" className="coin" />
+              <span style={{display: 'flex', paddingLeft: 10, color: 'grey', fontSize: 18, fontWeight: 'bold',
+            alignSelf: 'end', paddingRight: 20}}>{balance && balance}<img style={{height: 20, width: 20,}} src={bd}/></span>
             </div>
           </div>
-          <span style={{display: 'flex', alignItems: 'center', color: 'grey', fontSize: 18, fontWeight: 'bold',
-           alignSelf: 'end', paddingRight: 20}}>{balance && balance}<img style={{height: 20, width: 20,}} src={bd}/></span>
+          
           <img src={smolder} alt="img" className="image" />
           <h2>Kết quả</h2>
           <div className="result_scrore">Score: <span style={{ color: 'red' }}>{score}</span></div>
