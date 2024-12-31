@@ -1,5 +1,3 @@
-import { beginCell, toNano, Address, Cell, fromNano } from "ton";
-import { useTonConnect } from "../hooks/useTonConnect";
 import { useFaucetBDContract } from "../hooks/useFaucetJettonContract";
 import {Card, FlexBoxCol, FlexBoxRow, Ellipsis} from "./styled/styled";
 

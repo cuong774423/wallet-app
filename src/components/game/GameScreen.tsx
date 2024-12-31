@@ -71,12 +71,12 @@ const Game = () => {
       const interval = setInterval(() => setTimer(prev => prev - 1  ), 1000);
       return () => clearInterval(interval);
     } else if (timer === 0 && !gameOver) {
-      setGameOver(true);
-      pauseMusic();
-      increaseScore(score);
       if(score >= 20) {
         mint();
       }
+      setGameOver(true);
+      pauseMusic();
+      increaseScore(score);
     }
   }, [timer, gameOver]);
 
@@ -99,12 +99,13 @@ const Game = () => {
 
   const endGame = () => {
     if (!gameOver) {  
-      setGameOver(true);
-      pauseMusic();
-      increaseScore(score);
       if(score >= 20) {
         mint();
       }
+      setGameOver(true);
+      pauseMusic();
+      increaseScore(score);
+      
     }
   }
 
